@@ -5,7 +5,8 @@
 @layer base {
   @font-face {
     font-family: 'Bebas Neue';
-    src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap') format('css');
+    font-display: swap;
   }
 }
 
@@ -52,12 +53,13 @@
 
 .pixel-art {
   image-rendering: pixelated;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .pixel-text {
   text-shadow: 3px 3px #000;
   letter-spacing: 2px;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .pixel-banner {
