@@ -156,7 +156,7 @@ function App() {
               <div className="w-24 h-24 mx-auto mb-4 relative">
                 <div className="sprite-container">
                   <img 
-                    src='./xuxa.jpeg' 
+                    src='/xuxa.jpeg' 
                     className={`w-full h-full object-cover rounded-full ${isSpinning ? 'animate-spin' : ''}`} 
                     alt="Xuxa"
                   />
