@@ -2,23 +2,26 @@ import React, { useState } from 'react';
 import { Dice6, Sparkles, Star, BookIcon as TiktokIcon } from 'lucide-react';
 
 const videoLinks = [
-  { id: 1, title: 'Video 1', tiktokUrl: 'https://tiktok.com/@user/video/example1' },
-  { id: 2, title: 'Video 2', tiktokUrl: 'https://tiktok.com/@user/video/example2' },
-  { id: 3, title: 'Video 3', tiktokUrl: 'https://tiktok.com/@user/video/example3' },
-  { id: 4, title: 'Video 4', tiktokUrl: 'https://tiktok.com/@user/video/example1' },
-  { id: 5, title: 'Video 5', tiktokUrl: 'https://tiktok.com/@user/video/example2' },
-  { id: 6, title: 'Video 6', tiktokUrl: 'https://tiktok.com/@user/video/example3' },
-  { id: 7, title: 'Video 7', tiktokUrl: 'https://tiktok.com/@user/video/example1' },
-  { id: 8, title: 'Video 8', tiktokUrl: 'https://tiktok.com/@user/video/example2' },
-  { id: 9, title: 'Video 9', tiktokUrl: 'https://tiktok.com/@user/video/example3' },
-  { id: 10, title: 'Video 10', tiktokUrl: 'https://tiktok.com/@user/video/example1' },
-  { id: 11, title: 'Video 11', tiktokUrl: 'https://tiktok.com/@user/video/example2' },
-  { id: 12, title: 'Video 12', tiktokUrl: 'https://tiktok.com/@user/video/example3' },
+  { id: 1, title: 'eu acho que isso vai te trazer alegria', tiktokUrl: 'https://vm.tiktok.com/ZMBPX5bkY/' },
+  { id: 2, title: 'eu teria esse carro', tiktokUrl: 'https://vm.tiktok.com/ZMBPXBqw3/' },
+
+  { id: 3, title: 'pitufinos', tiktokUrl: 'https://vm.tiktok.com/ZMBPXunNv/' },
+  { id: 4, title: 'apenas veja', tiktokUrl: 'https://vm.tiktok.com/ZMBPXU4nS/' },
+  { id: 5, title: 'oi vc e linda eu deixo vc quebrar meu coracao ta', tiktokUrl: 'https://open.spotify.com/intl-pt/track/2uvE4L5ZsYKpv8hbK4TIOt?si=8b056b0136ca4efc' },
+  { id: 6, title: 'outra msc pq no meio do caminho fazendo isso decidi q irei agraciar vc com meu humor e otimo gosto musical', tiktokUrl: 'https://open.spotify.com/intl-pt/track/7tIJDktakabGoHjwTTa35W?si=51b8018ebf1e4dbc' },
+  { id: 7, title: 'apenas sim', tiktokUrl: 'https://vm.tiktok.com/ZMBPsEEuS/' },
+  { id: 8, title: 'apenas sim dnv', tiktokUrl: 'https://vm.tiktok.com/ZMBPsEEuS/' },
+  { id: 9, title: 'bro....', tiktokUrl: 'https://vm.tiktok.com/ZMBPGR62J/' },
+  { id: 10, title: 'eu amo os doguinhos....', tiktokUrl: 'https://vm.tiktok.com/ZMBaPgfXd/' },
+
+  
+  
 ];
 
 function App() {
   const [currentVideo, setCurrentVideo] = useState(videoLinks[0]);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [showList, setShowList] = useState(false);
 
   const spinRoulette = () => {
     setIsSpinning(true);
@@ -38,6 +41,10 @@ function App() {
 
   const handleVideoClick = () => {
     window.open(currentVideo.tiktokUrl, '_blank');
+  };
+
+  const toggleList = () => {
+    setShowList(!showList);
   };
 
   return (
@@ -135,7 +142,7 @@ function App() {
         {/* Pixel art banner */}
         <div className="pixel-banner mb-8">
           <div className="pixel-scanlines"></div>
-          <h1 className="text-center text-4xl pixel-text text-pink-100 animate-glow">minha seleção de videos extremamente pensadas pra você</h1>
+          <h1 className="text-center text-4xl pixel-text text-pink-100 animate-glow">minha seleção de videos e musicas extremamente pensadas pra você (ou em você?</h1>
         </div>
         
         <div className="max-w-md mx-auto">
@@ -146,9 +153,13 @@ function App() {
                 <div className="pixel-glitch"></div>
                 <h2 className="text-2xl pixel-text text-pink-100">{currentVideo.title}</h2>
               </div>
-              <div className="w-16 h-16 mx-auto mb-4 relative">
+              <div className="w-24 h-24 mx-auto mb-4 relative">
                 <div className="sprite-container">
-                  <Dice6 className={`w-full h-full text-pink-300 ${isSpinning ? 'animate-spin' : ''}`} />
+                  <img 
+                    src='./xuxa.jpeg' 
+                    className={`w-full h-full object-cover rounded-full ${isSpinning ? 'animate-spin' : ''}`} 
+                    alt="Xuxa"
+                  />
                 </div>
               </div>
               
@@ -157,8 +168,8 @@ function App() {
                 onClick={handleVideoClick}
                 className="w-full pixel-button-tiktok mt-6"
               >
-                <TiktokIcon className="w-5 h-5 inline-block mr-2" />
-                <span className="relative z-10">assiste ai</span>
+                
+                <span className="relative z-10">clica ai</span>
               </button>
             </div>
             
@@ -168,6 +179,34 @@ function App() {
             <div className="absolute bottom-0 left-0 w-4 h-4 border-b-4 border-l-4 border-pink-300"></div>
             <div className="absolute bottom-0 right-0 w-4 h-4 border-b-4 border-r-4 border-pink-300"></div>
           </div>
+
+          {/* New list button */}
+          <button
+            onClick={toggleList}
+            className="w-full py-4 px-8 bg-pink-600 hover:bg-pink-500 text-white font-bold pixel-button-pink relative overflow-hidden mt-4"
+          >
+            <div className="pixel-button-shine"></div>
+            <span className="relative z-10">
+              {showList ? 'Esconder lista' : 'Mostrar todos os vídeos'}
+            </span>
+          </button>
+
+          {/* Video list */}
+          {showList && (
+            <div className="mt-6 pixel-border-outer p-2 bg-pink-950">
+              <div className="pixel-border-pink p-4">
+                {videoLinks.map((video) => (
+                  <div
+                    key={video.id}
+                    className="p-2 hover:bg-pink-800 cursor-pointer"
+                    onClick={() => window.open(video.tiktokUrl, '_blank')}
+                  >
+                    {video.title}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Spin button */}
           <button
