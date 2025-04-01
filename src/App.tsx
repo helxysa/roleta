@@ -187,7 +187,7 @@ function App() {
           >
             <div className="pixel-button-shine"></div>
             <span className="relative z-10">
-              {showList ? 'Esconder lista' : 'Mostrar todos os vídeos'}
+              {showList ? 'Esconder lista' : 'mostrar tudo'}
             </span>
           </button>
 
